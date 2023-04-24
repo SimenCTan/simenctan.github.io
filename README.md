@@ -1,45 +1,30 @@
-# Chirpy Starter [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)](https://rubygems.org/gems/jekyll-theme-chirpy) [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
+## 概述
 
-When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders `/_data`, `/_layouts`, `/_includes`, `/_sass` and `/assets`, as well as a small part of options of the `/_config.yml` file from the theme's gem. If you have ever installed this theme gem, you can use the command `bundle info --path jekyll-theme-chirpy` to locate these files.
+这是我的个人博客站点仓库，使用静态站点生成器Jekyll进行构建，并使用GitHub Pages进行托管，主题为Chirpy。博客站点主要用于记录我的学习笔记、分享个人经验和心得，以及与读者交流，我会不定期地更新站点，并保持良好的内容质量。
 
-The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being able to enjoy the out-of-the-box experience when using feature-rich themes.
 
-To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your Jekyll site. The following is a list of targets:
+## 如何在本地运行
 
-```shell
-.
-├── _config.yml
-├── _plugins
-├── _tabs
-└── index.html
+1. 克隆博客站点仓库
+
+```bash
+$ git clone https://github.com/SimenCTan/simenctan.github.io.git
 ```
 
-To save you time, and also in case you lose some files while copying, we extract those files/configurations of the latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+2. 安装Jekyll
 
-## Prerequisites
+具体安装方法请参考[Jekyll官网](https://jekyllrb.com/docs/installation/)。
 
-Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of the basic environment. [Git](https://git-scm.com/) also needs to be installed.
+3. 进入博客站点目录
 
-## Installation
-
-Sign in to GitHub and [**use this template**][use-template] to generate a brand new repository and name it `USERNAME.github.io`, where `USERNAME` represents your GitHub username.
-
-Then clone it to your local machine and run:
-
-```
-$ bundle
+```bash
+$ cd simenctan.github.io
 ```
 
-## Usage
+4. 运行本地服务器
 
-Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).
+```bash
+$ sudo bundle exec jekyll s
+```
 
-## License
-
-This work is published under [MIT][mit] License.
-
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[use-template]: https://github.com/cotes2020/chirpy-starter/generate
-[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+5. 打开浏览器
