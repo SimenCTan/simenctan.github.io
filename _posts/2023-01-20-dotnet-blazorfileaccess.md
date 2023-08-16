@@ -69,7 +69,7 @@ public async Task DrawImage()
 	await JS2dContext.InvokeVoidAsync("drawImage", JSImageBitmap, 0, 0, ImageDrawWidth, ImageDrawHeight);
 }
 ```
-![blazor-image-show](../assets/img/blazor-image-show.png)
+![blazor-image-show](/assets/img/blazor-image-show.png)
 
 ### 修改图片并保存在本地目录
 在打开文件编辑文件并打开文件保存对话框保存修改后的文件，在ImageEditor组件中增加编辑选项和保存 button，当点击保存的时候调用save方法
@@ -135,7 +135,7 @@ public async Task<FileSystemFileHandle> ShowSaveFilePickerAsync(SaveFilePickerOp
 	return new FileSystemFileHandle(jSFileHandle, helper);
 }
 ```
-![blazor-save-image](../assets/img/blazor-save-image.png)
+![blazor-save-image](/assets/img/blazor-save-image.png)
 
 ### 读取文件目录
 在ImageEditor组件中增加打开目录button，当点击打开目录时调用OpenDictoryPicker方法
@@ -186,7 +186,7 @@ protected async Task OpenDictoryPicker()
 	}
 }
 ```
-![blazor-open-directory](../assets/img/blazor-open-directory.png)
+![blazor-open-directory](/assets/img/blazor-open-directory.png)
 
 #### 参考
 [Blazor File System Access](https://github.com/KristofferStrube/Blazor.FileSystemAccess)

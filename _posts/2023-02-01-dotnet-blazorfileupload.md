@@ -182,7 +182,7 @@ blazor wasm FileOperation.razor 组件中允许用户从客户端上传文件,�
     </div>
 }
 ```
-![upload-file-2-azure](../assets/img/upload-file-2-azure.png)
+![upload-file-2-azure](/assets/img/upload-file-2-azure.png)
 
 #### 参考
 [blazor-file-upload](https://learn.microsoft.com/en-us/aspnet/core/blazor/file-uploads)

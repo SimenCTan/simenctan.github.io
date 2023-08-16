@@ -160,19 +160,19 @@ Razor组件处理一组同步和异步生命周期方法中的blazor组件生命
 2. 调用 OnInitialized如果返回不完整的 Task，则将等待 Task，然后重新呈现组件
 3. 调用 OnParametersSet。 如果返回不完整的 Task，则将等待 Task，然后重新呈现组件
 4. 呈现所有同步工作和完整的 Task
-![lifecycle-event](../assets/img/lifecycle-event.png)
+![lifecycle-event](/assets/img/lifecycle-event.png)
 >在组件内处理事件的生命周期
 1. 运行事件处理程序
 2. 如果返回不完整的 Task，则将等待 Task，然后重新呈现组件
 3. 呈现所有同步工作和完整的 Task
-![lifecycle-onevent](../assets/img/lifecycle-onevent.png)
+![lifecycle-onevent](/assets/img/lifecycle-onevent.png)
 
 >组件ui呈现的生命周期
 1. 避免对组件进行进一步的呈现操作在第一次呈现后ShouldRender为false
 2. 生成呈现树差异并呈现组件
 3. 等待 DOM 更新
 4. 调用 OnAfterRender
-![lifecycle-ui](../assets/img/lifecycle-ui.png)
+![lifecycle-ui](/assets/img/lifecycle-ui.png)
 
 #### 参考
 [ASP.NET Core Razor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components)

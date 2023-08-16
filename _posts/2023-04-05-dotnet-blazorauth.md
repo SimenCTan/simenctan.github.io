@@ -60,6 +60,6 @@ builder.Services.AddIdentityServer()
 `<script src="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/
     AuthenticationService.js"></script>`
 在App.razor组件中CascadingAuthenticationState组件管理向应用的其余部分公开AuthenticationState；AuthorizeRouteView 组件确保当前用户有权访问给定页面或以其他方式呈现 RedirectToLogin 组件 启动IdentityAuthen.Server授权服务器和客户端IdentityAuthen.Client运行效果如下
-![blazor-identityserver-authorize](../assets/img/blazor-identityserver-authorize.png)
+![blazor-identityserver-authorize](/assets/img/blazor-identityserver-authorize.png)
 #### 参考
 [ASP.NET Core Blazor WebAssembly app with Identity Server](https://docs.microsoft.com/en-us/aspnet/core/blazor/security/webassembly/hosted-with-identity-server)

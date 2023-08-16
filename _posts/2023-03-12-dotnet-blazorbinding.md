@@ -82,7 +82,7 @@ Logger.LogInformation("HandleValidSubmit called");
 }
 ```
 其中DataAnnotationsValidator 组件将数据注释验证附加到级联 EditContext。 启用数据注释验证需要DataAnnotationsValidator组件。 若要使用不同于数据注释的验证系统，请用自定义实现替换 DataAnnotationsValidator组件 ValidationSummary 组件用于汇总所有验证消息, EditForm 基于分配的 Starship 实例创建 EditContext (Model="@starship") 并处理有效的窗体
-![editorfrom](../assets/img/blazor-forms-validation-editorfrom.png)
+![editorfrom](/assets/img/blazor-forms-validation-editorfrom.png)
 ### EditForm基本验证
 在基本窗体验证场景中，EditForm 实例可以使用声明的 EditContext 和 ValidationMessageStore 来校验，EditContext组件的OnValidationRequested 事件处理程序执行自定义验证逻辑，处理程序的结果会更新 ValidationMessageStore 实例 在组件中增加代码
 ```html

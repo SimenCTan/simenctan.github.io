@@ -26,7 +26,7 @@ Click me
 </button>
 ```
 Play CDN生成以下样式标签
-![tailwind css](../assets/img/tailwindcss.png)
+![tailwind css](/assets/img/tailwindcss.png)
 
 ### 通过NPM使用Tailwind CLI
 在Tailwind v3中，JiT模式现在是默认的。这意味着我们需要运行一个进程(Tailwind CLI)，观察Tailwind CSS类的使用情况，并根据需要重新编译输出的CSS，提供给Blazor 应用程序使用。
@@ -51,7 +51,7 @@ module.exports = {
 </head>
 ```
 dotnet watch run 运行Blazor App
-![blazor app](../assets/img/tailwindcli.png)
+![blazor app](/assets/img/tailwindcli.png)
 发布应用程序时可以使用CLI来生成最终CSS的最小化版本用命令 npx tailwindcss -i ./Styles/tailwind.css -o ./wwwroot/css/tailwind.css --minify
 
 ### 把Tailwind Css做为PostCss的插件

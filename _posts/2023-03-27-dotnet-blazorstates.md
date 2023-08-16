@@ -46,7 +46,7 @@ Blazor Server是有状态的应用框架大多数情况下应用保持与服务�
 	}
 }
 ```
-![session-storage](../assets/img/blazor-session-storage.png)
+![session-storage](/assets/img/blazor-session-storage.png)
 >在使用浏览器存储时的注意事项
 1.与使用服务器端数据库类似，加载和保存数据都是异步的
 2.与服务器端数据库不同，在预呈现期间，存储不可用，因为在预呈现阶段，请求的页面在浏览器中不存在
@@ -128,7 +128,7 @@ private void ChangePropertyValue()
 }
 }
 ```
-![](../assets/img/blazor-state-container.png)
+![](/assets/img/blazor-state-container.png)
 组件实现IDisposable并且OnChange委托在Dispose方法中取消订阅这些方法是在释放组件时由框架调用的。
 #### 参考
 [ASP.NET Core Blazor state management](https://docs.microsoft.com/en-us/aspnet/core/blazor/state-management)

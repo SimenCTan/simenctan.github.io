@@ -1,5 +1,5 @@
 ---
-title: blazor with sqlite
+title: Blazor with sqlite
 date: 2022-12-11 11:22:22 +0800
 categories: [.NET, C#]
 tags: [blazor]     # TAG names should always be lowercase
@@ -10,7 +10,7 @@ mermaid: true
 
 ### 下载.NET WebAssembly 生成工具
 在命令 shell 中运行 dotnet workload install wasm-tools 通过命令 dotnet workload list 来查看当前已安装的工作负载 
-![wasm-tools](../assets/img/wasm-tool-download.png)
+![wasm-tools](/assets/img/wasm-tool-download.png)
 
 ### 在项目文件中引用 NativeFileReference
 原生依赖项通过NativeFileReference 项引用到项目中，在生成项目时，每个 NativeFileReference 都由 .NET WebAssembly 生成工具传递给 Emscripten （一个完整的WebAssembly的编译器工具链），以便对其进行编译并链接到运行时。  

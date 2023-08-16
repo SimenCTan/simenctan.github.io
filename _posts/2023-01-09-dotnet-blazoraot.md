@@ -15,7 +15,7 @@ dotNET6支持Blazor WebAssembly超前编译（AOT编译），AOT编译是指在�
 </PropertyGroup>
 ```
 使用命令 `dotnet publish -c Release -o AOTBlazorApp` 发布应用
-![BlazorAOT](../assets/img/BlazorAOT.png)
+![BlazorAOT](/assets/img/BlazorAOT.png)
 
 ### Blazor AOT编译和JIT编译包对比
 在启用AOT编译后Publish的包文件达到惊人的115m,而未启用AOT编译的Blazor应用程序包文件才30m,AOT 编译的 Blazor WebAssembly 应用的大小通常比编译到 .NET IL 中的应用大小要大。 虽然大小差异取决于应用，则大多数 AOT 编译的应用大约是其 IL 编译的版本的两倍大。 这意味着使用 AOT 编译是用加载时间性能换取运行时性能。 使用 AOT 编译是否值得进行这种权衡取决于你的应用。 CPU 密集型的 Blazor WebAssembly 应用通常从 AOT 编译中受益最大。
@@ -35,5 +35,5 @@ AOT编译既然已经增加了Blazor APP应用的大小，那怎么配置Blazor 
 </PropertyGroup>
 ```
 使用命令 `dotnet publish -c Release -o TrimmingAOTBlazorApp` 发布应用 SuppressTrimAnalysisWarnings 会在build应用时显示警告
-![trimming-warning](../assets/img/trimming-warning.png)
+![trimming-warning](/assets/img/trimming-warning.png)
 设置裁边器之后AOT编译发布Blazor App后包的大小为 110m+并没有明显的改变不知道那里设置的不对。
