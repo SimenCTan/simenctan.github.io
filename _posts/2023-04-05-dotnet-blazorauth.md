@@ -14,7 +14,7 @@ Blazor WebAssembly 支持通过Microsoft.AspNetCore.Components.WebAssembly.Authe
 
 ## IdentityServer认证Blazor wasm
 使用命令dotnet new blazorwasm -au Individual -ho --name IdentityAuthen 将独立或托管的 Blazor WebAssembly应用配置为使用现有的外部Identity服务器进行授权认证。在IdentityAuthen.Server项目中会引用包,其中Identity是关于身份验证的包，EntityFrameworkCore是关于数据库访问的包，在IdentityAuthen.Server项目Program.cs文件中会配置认证授权的代码
-```C#
+```csharp
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -38,7 +38,7 @@ AddApiAuthorization 帮助器方法针对 ASP.NET Core场景配置IdentityServer
 1. 向具有默认 API 范围的 IdentityServer 注册 API API 资源
 2. 配置中间件以验证 IdentityServer为应用颁发的令牌
 配置IdentityAuthen.Server项目的cors允许客户端的域名访问，并配置回调的url
-```C#
+```csharp
 builder.Services.AddIdentityServer()
 	.AddApiAuthorization<ApplicationUser, ApplicationDbContext>(options => {
 		// Clients

@@ -8,7 +8,7 @@ mermaid: true
 Blazor 框架支持 WebForm 并使用 EditForm 绑定到组件上进行模型验证。验证的过程则是：EditForm 基于分配的模型实例创建了EditContext，用作窗体中其他组件的EditForm。EditContext 跟踪有关编辑进程的元数据，其中包括已修改的字段和当前的验证消息；通过提供OnValidSubmit事件让其在提交含有效字段的窗体时运行处理窗体提交，OnInvalidSubmit 事件让其在提交含无效字段的窗体时运行，使用OnSubmit事件让其在不考虑窗体字段验证状态的情况下运行，通过调用事件处理程序方法中的 EditContext.Validate 来验证窗体如果 Validate返回true则窗体有效。
 ## EditForm模型绑定验证
 定义待验证的模型Starship 包含了数据注释的多个属性
-```C#
+```csharp
 using System.ComponentModel.DataAnnotations;
 public class Starship
 {
@@ -141,7 +141,7 @@ if (editContext is not null)
 HandleValidationRequested 处理程序方法通过在验证窗体之前调用 ValidationMessageStore.Clear 来清除任何现有的验证消息
 ## 自定义验证 CSS 类属性
 在校验失败时使用自定义的css来提示用户，在wwwroot/css/app.css (Blazor WebAssembly) 或 wwwroot/css/site.css (Blazor Server) css文件中添加自定的样式或则使用框架Bootstrap和tailwindcss定义的css； 创建一个从 FieldCssClassProvider 派生的类，用于检查字段验证消息，并应用相应的有效或无效样式。
-```C#
+```csharp
 using System.Linq;
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -156,7 +156,7 @@ public class CustomFieldClassProvider : FieldCssClassProvider
 }
 ```
 重写OnInitialized()方法设置自定义CSS属性提供器
-```C#
+```csharp
 @code{
 protected override void OnInitialized()
 {

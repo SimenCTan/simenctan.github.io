@@ -24,8 +24,9 @@ Blazor Server是有状态的应用框架大多数情况下应用保持与服务�
 ## 浏览器存储状态
 用户正在主动创建的暂时性数据，通用存储位置是浏览器的localStorage和sessionStorage。
 1. localStorage 的应用范围限定为浏览器的窗口，如果用户重载页面或关闭并重新打开浏览器则状态保持不变。如果用户打开多个浏览器选项卡，则状态跨选项卡共享。 数据保留在 localStorage 中，直到被显式清除为止
-2. sessionStorage 的应用范围限定为浏览器的选项卡。如果用户重载该选项卡，则状态保持不变。 如果用户关闭该选项卡或该浏览器，则状态丢失。 如果用户打开多个浏览器选项卡，则每个选项卡都有自己独立的数据版本 在_Imports.razor 中引入命名空间@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage，在Counter.razor组件中使用ProtectedSessionStorage来存储本次对话需要保存的数据，以便当用户刷新浏览器的时候依然能读取到之前的数据
-```C#
+2. sessionStorage 的应用范围限定为浏览器的选项卡。如果用户重载该选项卡，则状态保持不变。 如果用户关闭该选项卡或该浏览器，则状态丢失。 如果用户打开多个浏览器选项卡，则每个选项卡都有自己独立的数据版本 在_Imports.razor 中引入命名空间@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage，在Counter.razor组件中使用ProtectedSessionStorage来存储本次对话需要保存的数据，以便当用户刷新浏览器的时候依然能读取到之前的数据  
+
+```csharp
 @page "/counter"
 @inject ProtectedSessionStorage ProtectedSessionStorage
 <PageTitle>Counter</PageTitle>
@@ -47,6 +48,7 @@ Blazor Server是有状态的应用框架大多数情况下应用保持与服务�
 }
 ```
 ![session-storage](/assets/img/blazor-session-storage.png)
+
 >在使用浏览器存储时的注意事项
 1.与使用服务器端数据库类似，加载和保存数据都是异步的
 2.与服务器端数据库不同，在预呈现期间，存储不可用，因为在预呈现阶段，请求的页面在浏览器中不存在
@@ -55,7 +57,7 @@ Blazor Server是有状态的应用框架大多数情况下应用保持与服务�
 
 ## 内存中状态容器服务
 嵌套组件通常使用ASP.NET Core数据绑定中所述的链式绑定来绑定数据，嵌套组件和非嵌套组件可使用已注册的内存中状态容器来共享对数据的访问，自定义状态容器类可以使用可分配的 Action，来向应用不同部分中的组件通知状态更改，定义StateContainer类。
-```C#
+```csharp
 namespace BlazorServerApp.Services;
 public class StateContainer
 {
@@ -128,7 +130,7 @@ private void ChangePropertyValue()
 }
 }
 ```
-![](/assets/img/blazor-state-container.png)
+![blazor-state-container](/assets/img/blazor-state-container.png)
 组件实现IDisposable并且OnChange委托在Dispose方法中取消订阅这些方法是在释放组件时由框架调用的。
 #### 参考
 [ASP.NET Core Blazor state management](https://docs.microsoft.com/en-us/aspnet/core/blazor/state-management)

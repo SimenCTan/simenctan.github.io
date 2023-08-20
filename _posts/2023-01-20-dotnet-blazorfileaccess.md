@@ -8,7 +8,7 @@ mermaid: true
 如果你想与用户的文件系统互动，那么你需要使用HTML标准来访问文件系统,常见的访问本地文件的几种方式：读取文件并展示文件内容，修文件并保存至本地以及读取文件目录，利用浏览器的本地文件API并用JSInterop将其封装起来然后从Blazor向其传递文件流达到访问用户文件系统的目的。
 ## 读取图片并且展示
 创建blazor webassembly项目 dotnet new blazorwasm --name BlazorFileAccess 在 index.html文件 <body>标记中增加js方法用来操作打开的文件，同时在根目录wwwroot 中增加js文件 fileAccess用户读取打开文件的参数。
-```HTML
+```html
 <body>
 ...
 <script>
@@ -19,7 +19,7 @@ window.setAttribute = (object, attribute, value) => { object[attribute] = value;
 </body>
 ```
 fileAccess 文件内容
-```JS
+```js
 export function size(array) { return array.length; }
 export function getAttribute(object, attribute) { return object[attribute]; }
 export async function arrayFrom(values) {
@@ -41,7 +41,7 @@ export async function arrayFrom(values) {
 </div>
 ```
 新增 FileSystemAccessService用来封装文件操作，打开文件对话框需要利用浏览器的本地文件API如FileSystemAccessService中的方法ShowOpenFilePickerAsync打开文件对话框，其中OpenFilePickerOptions确定文件对话框打开的初始位置和能选中的文件类型
-```C#
+```csharp
 public async Task<FileSystemFileHandle[]> ShowOpenFilePickerAsync(OpenFilePickerOptions? openFilePickerOptions = null)
 {
 	IJSInProcessObjectReference helper = await moduleTask.Value;
@@ -56,7 +56,7 @@ public async Task<FileSystemFileHandle[]> ShowOpenFilePickerAsync(OpenFilePicker
 }
 ```
 打开文件后在canvas标记中显示图片
-```C#
+```csharp
 public async Task DrawImage()
 {
 	if (JS2dContext == null) return;
@@ -73,7 +73,7 @@ public async Task DrawImage()
 
 ## 修改图片并保存在本地目录
 在打开文件编辑文件并打开文件保存对话框保存修改后的文件，在ImageEditor组件中增加编辑选项和保存 button，当点击保存的时候调用save方法
-```HTML
+```html
 <div class="row">
 	<div class="form-group col">
 			<label for="canvasSize">Canvas Size:</label>
@@ -92,7 +92,7 @@ public async Task DrawImage()
 <button class="btn btn-primary" @onclick=Save>Save</button>
 <br />
 ```
-```C#
+```csharp
 public async Task Save()
 {
 	FileSystemFileHandle? saveFileHandle = null;
@@ -126,7 +126,7 @@ public async Task Save()
 }
 ```
 在FileSystemAccessService中增加保存文件的对话框
-```C#
+```csharp
 public async Task<FileSystemFileHandle> ShowSaveFilePickerAsync(SaveFilePickerOptions? saveFilePickerOptions = null)
 {
 	IJSInProcessObjectReference? helper = await moduleTask.Value;
@@ -164,7 +164,7 @@ public async Task<FileSystemFileHandle> ShowSaveFilePickerAsync(SaveFilePickerOp
 </table>
 ```
 OpenDictoryPicker方法
-```C#
+```csharp
 protected async Task OpenDictoryPicker()
 {
 	FileSystemDirectoryHandle? directoryHandle = null;

@@ -25,15 +25,18 @@ int fact(int n)
 if (n == 0) return 1;
 return n * fact(n - 1);
 }
-```
-3. 在应用程序的项目文件中为 Test.c 添加 NativeFileReference
+```  
+3. 在应用程序的项目文件中为 Test.c 添加 NativeFileReference  
+
 ```xml
 <ItemGroup>
   <NativeFileReference Include="Test.c" />
 </ItemGroup>
-```
-4. 在 Razor 组件中，为生成的 Test 库中的 fact 函数添加 DllImportAttribute，并从组件中的 .NET 代码调用 fact 方法。
-```HTML
+``` 
+
+4. 在 Razor 组件中，为生成的 Test 库中的 fact 函数添加 DllImportAttribute，并从组件中的 .NET 代码调用 fact 方法。  
+
+```html
 @page "/native-c-test"
   @using System.Runtime.InteropServices
 
@@ -55,25 +58,32 @@ return n * fact(n - 1);
 在多数情况下原生依赖不止是单个的文件，这时候可以用 Emscripten 编译源代码成后缀为 .o的对象文件，譬如我们要在wasm中引用sqlite，必须把sqlite的源文件编译进WebAssembly，这样在wasm runtimes中才可以运行。
 1. [下载安装emsdk](https://emscripten.org/docs/getting_started/downloads.html)
 2. 使用命令 `emcc.bat sqlite3.c -shared -o e_sqlite3.o` 编译sqlite3.c 成wasm可用的对象文件
-3. 在应用程序的项目文件中为 e_sqlite3.o 添加 NativeFileReference
+3. 在应用程序的项目文件中为 e_sqlite3.o 添加 NativeFileReference   
+
 ```xml
 <ItemGroup>
   <NativeFileReference Include="Test.c" />
   <NativeFileReference Include="Data\e_sqlite3.o" />
 </ItemGroup>
-```
+```  
+
 4. 新增Directory.build.props文件 允许不安全区块
-```xml
- <Project>
-  <PropertyGroup>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <EmccExtraLDFlags>-s WARN_ON_UNDEFINED_SYMBOLS=0</EmccExtraLDFlags>
-  </PropertyGroup>
- </Project>
-```
+
+ ```xml
+
+	<Project>
+	<PropertyGroup>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<EmccExtraLDFlags>-s WARN_ON_UNDEFINED_SYMBOLS=0</EmccExtraLDFlags>
+	</PropertyGroup>
+	</Project>
+
+ ```
+
 5. 添加对Microsoft.EntityFrameworkCore.Sqlite程序集的引用
 6. 在wasm组件中使用ef core sqlite
-```HTML
+
+```html
 @page "/native-sqlite"
 	<PageTitle> native sqlite</PageTitle>
 	<div>

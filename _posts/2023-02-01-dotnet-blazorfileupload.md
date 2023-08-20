@@ -6,7 +6,7 @@ tags: [blazor]     # TAG names should always be lowercase
 mermaid: true
 ---
 使用 InputFile组件将浏览器文件数据读入 .NET 代码，在用户选择文件后发生 OnChange (change) 事件时， InputFile 组件执行 LoadFiles 方法参数 InputFileChangeEventArgs 提供对所选文件列表和每个文件的详细信息的访问
-```C#
+```csharp
 <InputFile OnChange="@LoadFiles" multiple/>
 @code {
   private List<IBrowserFile> BrowserFiles = new();
@@ -28,7 +28,7 @@ mermaid: true
 }
 ```
 调用 IBrowserFile.OpenReadStream，并从返回的流中读取文件内容。OpenReadStream 强制采用其 Stream 的最大大小（以字节为单位）。 读取一个或多个大于 512,000 字节 (500 KB) 的文件会引发异常。 此限制可防止开发人员意外地将大型文件读入到内存中。 如果需要，可以使用 OpenReadStream 上的 maxAllowedSize 参数指定更大的大小，如果超过这个大小就报出错误
-```C#
+```csharp
 private void LoadFiles(InputFileChangeEventArgs e)
 {
     try
@@ -57,7 +57,7 @@ private void LoadFiles(InputFileChangeEventArgs e)
 ```
 ## 上传文件到AzureBlob
 Azure Storage Blobs 暂不支持wasm所以无法从blazor wasm应用中直接上传文件到azure blob上得通过相应api上传文件。通过命令 dotnet new webapi —name FileUpload 创建webapi项目引用Azure blob，在Program.cs文件中注入BlobContainerClient
-```C#
+```csharp
 // Add services to the container.
 builder.Services.Configure<AzureStorageOption>(builder.Configuration.GetSection("AzureStorage"));
 AzureStorageOption AzureStorageOption = new();
@@ -70,7 +70,7 @@ builder.Services.AddScoped(_ =>
 });
 ```
 新增Controller 在FileController.cs 文件中增加uploadfile接口
-```C#
+```csharp
 [ApiController]
 [Route("api/[Controller]/[action]")]
 public class FileController : Controller
@@ -117,7 +117,7 @@ public class FileController : Controller
 }
 ```
 在webapi Program.cs 中配置cors策略允许不同域的应用程序可以调用api
-```C#
+```csharp
 builder.Services.AddCors(policy => {
     policy.AddPolicy("CorsPolicy",
                  opt => opt.SetIsOriginAllowed(s => true)
@@ -131,7 +131,7 @@ builder.Services.AddCors(policy => {
     BaseAddress = new Uri("https://localhost:7124/api/")
 });`
 blazor wasm FileOperation.razor 组件中允许用户从客户端上传文件,在用户界面中显示由客户端提供的不可信/不安全的文件名，不受信任/不安全的文件名由Razor自动进行HTML编码，以便在用户界面中安全显示。
-```C#
+```csharp
 @code {
     private List<IBrowserFile> BrowserFiles = new();
     private int maxAllowFiles=3;
@@ -174,7 +174,7 @@ blazor wasm FileOperation.razor 组件中允许用户从客户端上传文件,�
 ```
 ## 文件显示
 选择文件上传到azure blob上返回文件的url路径，在img标签中显示图片内容
-```HTML
+```html
 @if(imgUrl!=null)
 {
     <div>
