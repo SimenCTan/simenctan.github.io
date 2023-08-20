@@ -1,7 +1,7 @@
 ---
 title: Blazor 文件上传
 date: 2023-02-01 12:30:22 +0800
-categories: [.NET, C#]
+categories: [.NET]
 tags: [blazor]     # TAG names should always be lowercase
 mermaid: true
 ---
@@ -55,7 +55,7 @@ private void LoadFiles(InputFileChangeEventArgs e)
     }
     Console.WriteLine($"{BrowserFiles.Count} files upload");
 ```
-### 上传文件到AzureBlob
+## 上传文件到AzureBlob
 Azure Storage Blobs 暂不支持wasm所以无法从blazor wasm应用中直接上传文件到azure blob上得通过相应api上传文件。通过命令 dotnet new webapi —name FileUpload 创建webapi项目引用Azure blob，在Program.cs文件中注入BlobContainerClient
 ```C#
 // Add services to the container.
@@ -172,7 +172,7 @@ blazor wasm FileOperation.razor 组件中允许用户从客户端上传文件,�
         BrowserFiles.Clear();
         await Task.CompletedTahe
 ```
-### 文件显示
+## 文件显示
 选择文件上传到azure blob上返回文件的url路径，在img标签中显示图片内容
 ```HTML
 @if(imgUrl!=null)

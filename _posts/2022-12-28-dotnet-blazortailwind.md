@@ -1,7 +1,7 @@
 ---
 title: Blazor App集成 Tailwind CSS
 date: 2022-12-28 17:22:22 +0800
-categories: [.NET, C#]
+categories: [.NET]
 tags: [blazor]     # TAG names should always be lowercase
 mermaid: true
 ---
@@ -11,7 +11,7 @@ mermaid: true
 - 将Tailwind CSS添加到Blazor项目中
 - 使用Tailwind CLI进行集成
 
-### Play CDN添加到Blazor应用程序中
+## Play CDN添加到Blazor应用程序中
 使用Play CDN，在浏览器中直接试用Tailwind，无需任何构建步骤。Play CDN只为开发目的而设计，并不是生产的最佳选择。要在Blazor App中添加Play CDN，我们需要在主机页面的head元素（Blazor WebAssembly的index.html或Blazor Server的_hosts.cshtml）中添加以下脚本标签。
 ```HTML
 <head>
@@ -28,7 +28,7 @@ Click me
 Play CDN生成以下样式标签
 ![tailwind css](/assets/img/tailwindcss.png)
 
-### 通过NPM使用Tailwind CLI
+## 通过NPM使用Tailwind CLI
 在Tailwind v3中，JiT模式现在是默认的。这意味着我们需要运行一个进程(Tailwind CLI)，观察Tailwind CSS类的使用情况，并根据需要重新编译输出的CSS，提供给Blazor 应用程序使用。
 1. 使用以下命令安装Tailwind CLI npm install -g tailwindcss
 2. 在Blazor项目的根目录运行 npx tailwindcss init 将在根目录中创建一个新的默认的Tailwind配置文件名为tailwind.config.js
@@ -54,7 +54,7 @@ dotnet watch run 运行Blazor App
 ![blazor app](/assets/img/tailwindcli.png)
 发布应用程序时可以使用CLI来生成最终CSS的最小化版本用命令 npx tailwindcss -i ./Styles/tailwind.css -o ./wwwroot/css/tailwind.css --minify
 
-### 把Tailwind Css做为PostCss的插件
+## 把Tailwind Css做为PostCss的插件
 对于已经存在的前端项目通过添加tailwind css作为PostCss的插件来集成至现有的项目是一种最有效的方式。
 1. 打开已存在项目的根目录如果不是nodejs项目，使用命令 npm init 创建一个package.json文件
 2. 通过命令 npm install tailwindcss postcss autoprefixer postcss-cli 添加依赖包

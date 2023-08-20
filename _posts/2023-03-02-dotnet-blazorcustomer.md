@@ -1,7 +1,7 @@
 ---
 title: Blazor 自定义组件
 date: 2023-03-02 09:30:22 +0800
-categories: [.NET, C#]
+categories: [.NET]
 tags: [blazor]     # TAG names should always be lowercase
 mermaid: true
 ---
@@ -31,8 +31,8 @@ public partial class CounterPartialClass
     }
 }
 ```
-### 组件参数
-#### 通过父组件传递参数
+## 组件参数
+### 通过父组件传递参数
 组件参数将数据传递给组件，使用组件类中包含 特性的公共 C# 属性进行定义,应将组件参数声明为自动属性，这意味着它们不应在其 或 set 访问器中包含自定义逻辑,如果子组件属性的 set 访问器包含导致父组件重新呈现的逻辑，则会导致一个无限的呈现循环,定义组件ProductionCard.razor
 ```C#
 <div>
@@ -65,7 +65,7 @@ public partial class CounterPartialClass
     public int Price {get;set;}
 }
 ```
-#### 通过路由传递参数
+### 通过路由传递参数
 blazor组件不仅可以通过父组件传递参数也可以通过路由传递参数，在@page指令的路由模板中指定路由参数，路由器使用路由参数来填充相应的组件参数。
 ```c#
 @page "/counter/{routeParameter?}"
@@ -81,7 +81,7 @@ blazor组件不仅可以通过父组件传递参数也可以通过路由传递�
 	}
 }
 ```
-#### 传递泛型参数
+### 传递泛型参数
 如果blazor组件参数是泛型类型参数可以用@typeparam 指令声明
 ```C#
 @typeparam TEntity where TEntity:struct
@@ -103,7 +103,7 @@ blazor组件不仅可以通过父组件传递参数也可以通过路由传递�
     TEntity="int">
     </ProductionCard>
 ```
-#### 通过CascadingValue组件传递参数
+### 通过CascadingValue组件传递参数
 祖先组件使用 Blazor 框架的 CascadingValue 组件提供级联值，该组件包装组件层次结构的子树，并向其子树中的所有组件提供单个值，与常规组件参数类似，当级联值改变时，接受级联参数的组件会重新呈现。在组件MainLayout.razor中添加
 ```html
 <CascadingValue Value="@BtnClass">
@@ -121,7 +121,7 @@ private string BtnClass {get;init;}="btn-success";
   protected string BtnClass {get;set;}
 }
 ```
-### 组件数据绑定
+## 组件数据绑定
 组件使用 @bindRazor 指令特性提供与字段、属性或 Razor 表达式值的数据绑定功能。
 ```html
 <p>
@@ -131,7 +131,7 @@ private string BtnClass {get;init;}="btn-success";
   </label>
 </p>
 ```
-### 组件事件处理
+## 组件事件处理
 blazor组件使用 @on=""Razor 语法在 Razor 组件标记中指定委托事件处理程序
 - 占位符是（例如 click）
 - 占位符是 C# 委托事件处理程序 对于事件处理支持返回 Task 的异步委托事件处理程序，委托事件处理程序会自动触发 UI 呈现，因此无需手动调用 StateHasChanged，记录异常。
@@ -153,7 +153,7 @@ private async Task UpdateHeading()
 }
 }
 ```
-### 组件的生命周期
+## 组件的生命周期
 Razor组件处理一组同步和异步生命周期方法中的blazor组件生命周期事件，可以替代生命周期方法以在组件初始化和呈现期间对组件执行其他操作。 
 >组件在生命周期中从呈现到释放各会发生什么事件
 1. 创建组件的实例，执行属性注入，运行 SetParametersAsync

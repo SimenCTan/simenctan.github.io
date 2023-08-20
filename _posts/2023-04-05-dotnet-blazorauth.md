@@ -1,7 +1,7 @@
 ---
 title: Blazor WebAssembly 认证
 date: 2023-04-05 20:10:22 +0800
-categories: [.NET, C#]
+categories: [.NET]
 tags: [blazor]     # TAG names should always be lowercase
 mermaid: true
 ---
@@ -12,7 +12,7 @@ Blazor WebAssembly 支持通过Microsoft.AspNetCore.Components.WebAssembly.Authe
 4. OAuth 和 OIDC 的令牌不依赖于用户代理行为以确保应用安全
 5. 基于令牌的协议（例如 OAuth 和 OIDC）允许用同一组安全特征对托管和独立应用进行验证和授权
 
-### IdentityServer认证Blazor wasm
+## IdentityServer认证Blazor wasm
 使用命令dotnet new blazorwasm -au Individual -ho --name IdentityAuthen 将独立或托管的 Blazor WebAssembly应用配置为使用现有的外部Identity服务器进行授权认证。在IdentityAuthen.Server项目中会引用包,其中Identity是关于身份验证的包，EntityFrameworkCore是关于数据库访问的包，在IdentityAuthen.Server项目Program.cs文件中会配置认证授权的代码
 ```C#
 // Add services to the container.

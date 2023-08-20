@@ -1,12 +1,12 @@
 ---
 title: Blazor WebAssembly 访问文件系统
 date: 2023-01-20 11:29:22 +0800
-categories: [.NET, C#]
+categories: [.NET]
 tags: [blazor]     # TAG names should always be lowercase
 mermaid: true
 ---
 如果你想与用户的文件系统互动，那么你需要使用HTML标准来访问文件系统,常见的访问本地文件的几种方式：读取文件并展示文件内容，修文件并保存至本地以及读取文件目录，利用浏览器的本地文件API并用JSInterop将其封装起来然后从Blazor向其传递文件流达到访问用户文件系统的目的。
-### 读取图片并且展示
+## 读取图片并且展示
 创建blazor webassembly项目 dotnet new blazorwasm --name BlazorFileAccess 在 index.html文件 <body>标记中增加js方法用来操作打开的文件，同时在根目录wwwroot 中增加js文件 fileAccess用户读取打开文件的参数。
 ```HTML
 <body>
@@ -71,7 +71,7 @@ public async Task DrawImage()
 ```
 ![blazor-image-show](/assets/img/blazor-image-show.png)
 
-### 修改图片并保存在本地目录
+## 修改图片并保存在本地目录
 在打开文件编辑文件并打开文件保存对话框保存修改后的文件，在ImageEditor组件中增加编辑选项和保存 button，当点击保存的时候调用save方法
 ```HTML
 <div class="row">
@@ -137,7 +137,7 @@ public async Task<FileSystemFileHandle> ShowSaveFilePickerAsync(SaveFilePickerOp
 ```
 ![blazor-save-image](/assets/img/blazor-save-image.png)
 
-### 读取文件目录
+## 读取文件目录
 在ImageEditor组件中增加打开目录button，当点击打开目录时调用OpenDictoryPicker方法
 ```html
 <div>
