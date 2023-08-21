@@ -1,8 +1,8 @@
 ---
-title: csharp Record 类型
+title: C# Record 类型
 date: 2023-04-16 21:12:22 +0800
 categories: [.NET]
-tags: [csharp]     # TAG names should always be lowercase
+tags: [C#]     # TAG names should always be lowercase
 mermaid: true
 authors: [1,2]
 ---
