@@ -1,6 +1,6 @@
 ---
 title: C# Delegate
-date: 2023-04-16 21:12:22 +0800
+date: 2023-04-21 09:12:22 +0800
 categories: [.NET]
 tags: [C#]     # TAG names should always be lowercase
 mermaid: true
