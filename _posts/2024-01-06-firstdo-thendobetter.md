@@ -2,7 +2,7 @@
 title: 首先去做，然后做对，再做得更好
 date: 2024-01-01 10:12:22 +0800
 categories: [Existence]
-tags: [Reflections]     # TAG names should always be lowercase
+tags: [reflections]     # TAG names should always be lowercase
 mermaid: true
 authors: [1,2]
 ---
