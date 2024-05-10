@@ -2,7 +2,7 @@
 title: 掌握异步编程中的ConfigureAwait
 date: 2024-02-07 16:30:22 +0800
 categories: [.NET]
-tags: [infrastructure]     # TAG names should always be lowercase
+tags: [c#]     # TAG names should always be lowercase
 mermaid: true
 authors: [1,2]
 ---

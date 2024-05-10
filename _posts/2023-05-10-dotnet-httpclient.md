@@ -2,7 +2,7 @@
 title: HttpClient的常用场景及问题分析
 date: 2023-05-10 22:30:22 +0800
 categories: [.NET]
-tags: [infrastructure]     # TAG names should always be lowercase
+tags: [c#]     # TAG names should always be lowercase
 mermaid: true
 authors: [1,2]
 ---
