@@ -24,7 +24,9 @@ $ cd simenctan.github.io
 4. 运行本地服务器
 
 ```bash
-$ sudo bundle exec jekyll s
+bundle lock --update #update gemfile.lock
+bundle install # install package
+bundle exec jekyll s
 ```
 
 5. 打开浏览器
