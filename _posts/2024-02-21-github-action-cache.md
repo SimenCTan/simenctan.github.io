@@ -1,8 +1,8 @@
 ---
-title: 优化Gihub Action CI/CD Workflows
+title: 优化Gihub Action CI/CD Workflows with cache
 date: 2024-02-21 16:30:22 +0800
 categories: [Infrastructure]
-tags: [github action]     # TAG names should always be lowercase
+tags: [github-action-cache]     # TAG names should always be lowercase
 mermaid: true
 authors: [1,2]
 ---
